@@ -21,6 +21,7 @@ class Connector
                 $user,
                 $pass
             );
+            $this->dbConnection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         } catch (\PDOException $e) {
             exit($e->getMessage());
         }
