@@ -43,6 +43,7 @@ class DataController
     {
         $response['status_code_header'] = 'HTTP/1.1 201 Created';
         $response['data'] = $this->dataService->create($_FILES['csv']);
+
         return $response;
     }
 
@@ -53,6 +54,7 @@ class DataController
         foreach ($response['data'] as &$data) {
             $data['url'] = '/action/' . $data['ID акции'] . '-' . SlugService::get($data['Название акции']);
         }
+
         return $response;
     }
 
@@ -60,6 +62,7 @@ class DataController
     {
         $response['status_code_header'] = 'HTTP/1.1 404 Not Found';
         $response['data'] = null;
+
         return $response;
     }
 }

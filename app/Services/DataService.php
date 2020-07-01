@@ -52,6 +52,7 @@ class DataService
         }
 
         $randomRowData = $this->getRandomRow($file['name']);
+
         return $this->toggleStatus($randomRowData, $file['name']);
     }
 
@@ -85,6 +86,7 @@ class DataService
             $sql = "UPDATE `$table` SET `Статус` = \"{$data['Статус']}\" WHERE `ID акции` = \"{$data['ID акции']}\"";
             $this->connection->query($sql);
         }
+
         return $data;
     }
 
@@ -96,6 +98,7 @@ class DataService
         } catch (\Exception $e) {
             exit("Cannot show data from $table");
         }
+
         return $query->fetchAll(\PDO::FETCH_ASSOC);
 
     }
