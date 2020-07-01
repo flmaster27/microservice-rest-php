@@ -80,10 +80,11 @@ class DataService
 
     public function toggleStatus($data, $table)
     {
-        $data['Статус'] = ($data['Статус'] == 'Off') ? 'On' : 'Off';
-        $sql = "UPDATE `$table` SET `Статус` = \"{$data['Статус']}\" WHERE `ID акции` = \"{$data['ID акции']}\"";
-        $this->connection->query($sql);
-
+        if (isset($data['Статус'])) {
+            $data['Статус'] = ($data['Статус'] == 'Off') ? 'On' : 'Off';
+            $sql = "UPDATE `$table` SET `Статус` = \"{$data['Статус']}\" WHERE `ID акции` = \"{$data['ID акции']}\"";
+            $this->connection->query($sql);
+        }
         return $data;
     }
 
